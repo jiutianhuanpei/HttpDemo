@@ -1,6 +1,7 @@
 # HttpDemo
 封装常用的接口请求
 
+## 配置
 ```object
 NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
 config.timeoutIntervalForRequest = 30;
