@@ -44,7 +44,7 @@ _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:ba
                                 aspc = 1;
                             }
                             NSData *imageData = UIImageJPEGRepresentation(ori, 1);
-                            NSString *mimeType = [NSData sd_contentTypeForImageData:imageData];
+                            NSString *mimeType = [NSData sd_contentTypeForImageData:imageData];  // 这个是SDWebImage的方法
                             NSString *sub = [[mimeType componentsSeparatedByString:@"/"] lastObject];
                             
                             /**
@@ -54,7 +54,7 @@ _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:ba
                                 sub = @"jpeg";
                                 mimeType = [mimeType stringByReplacingOccurrencesOfString:@"gif" withString:@"jpeg"];
                             }
-                            
+                            // 这个是 AFNetworking 的方法
                             [formData appendPartWithFileData:UIImageJPEGRepresentation([ori resizedImageByWidth:ori.size.width * aspc], 1) name:@"att[]" fileName:[NSString stringWithFormat:@"file_%0.0fx%0.0f.%@",ori.size.width,ori.size.height, sub] mimeType:mimeType];
                             break;
                         }
